@@ -19,8 +19,8 @@ const App = () => {
         <Stack.Screen name="Home" component={ZipCodeScreen} />
         <Stack.Screen name="Weather" component={WeatherScreen} />
       </Stack.Navigator> 
-    </NavigationContainer>  
-    </View>     
+    </NavigationContainer> 
+    </View>      
   );
 };
 
