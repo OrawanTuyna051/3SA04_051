@@ -1,23 +1,40 @@
-//import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import Weather from './components/Weather'
+import React from 'react';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 
-// create a component
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <Weather zipCode="82000"/> 
-    </View>
-  );
-};
+export default class App extends React.Component {
+  showAlert = () => {
+    Alert.alert(
+      'Midterm Examinatio',
+      'CoE',
+      [
+        {text: 'Warodom  React Native', onPress: () => console.log('React Native')},
+        {text: 'Kullawat Hardware IoT', onPress: () => console.log('Hardware IoT'), style: 'cancel'},
+        {text: 'Thitinun Image processing', onPress: () => console.log('Image processing')},
+      ],
+      { cancelable: false }
+    )
+  };
 
-// define your styles
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Welcome to CoC</Text>
+        <Button
+          onPress={this.showAlert}
+          title="sec2"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
+      </View>
+    );
+  }
+}
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
-
-//make this component available to the app
-export default App;
