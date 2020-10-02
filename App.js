@@ -1,40 +1,34 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+//import liraries
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import Weather from './components/Weather'
+import WeatherScreen from './components/WeatherScreen'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import ZipCodeScreen from './components/ZipCodeScreen';
 
-export default class App extends React.Component {
-  showAlert = () => {
-    Alert.alert(
-      'Midterm Examinatio',
-      'CoE',
-      [
-        {text: 'Warodom  React Native', onPress: () => console.log('React Native')},
-        {text: 'Kullawat Hardware IoT', onPress: () => console.log('Hardware IoT'), style: 'cancel'},
-        {text: 'Thitinun Image processing', onPress: () => console.log('Image processing')},
-      ],
-      { cancelable: false }
-    )
-  };
+const Stack = createStackNavigator();
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Welcome to CoC</Text>
-        <Button
-          onPress={this.showAlert}
-          title="sec2"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
-      </View>
-    );
-  }
-}
+// create a component
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <Weather zipCode="92000"/> 
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={ZipCodeScreen} />
+        <Stack.Screen name="Weather" component={WeatherScreen} />
+      </Stack.Navigator> 
+    </NavigationContainer>  
+    </View>     
+  );
+};
 
+// define your styles
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1, 
   },
 });
+//make this component available to the app
+export default App;
