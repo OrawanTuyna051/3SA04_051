@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import Weather from './Weather';
 import { StatusBar } from 'expo-status-bar';
 
-
 export default function WeatherScreen({route}) {    
     return (
         <View>
